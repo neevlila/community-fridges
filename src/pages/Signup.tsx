@@ -14,7 +14,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const { signUp, signInWithGoogle, signInWithTwitter, user } = useAuth();
+  const { signUp, signInWithGoogle, user } = useAuth();
 
   if (user) {
     return <Navigate to="/" replace />;
@@ -49,14 +49,6 @@ const Signup = () => {
       toast.error('Failed to sign in with Google');
     }
   };
-
-  const handleTwitterSignIn = async () => {
-    const { error } = await signInWithTwitter();
-    if (error) {
-      toast.error('Failed to sign in with Twitter');
-    }
-  };
-
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted/30 px-4 py-20">
@@ -179,21 +171,6 @@ const Signup = () => {
           </svg>
           Continue with Google
         </Button>
-
-        <div className="mt-3">
-          <Button
-            type="button"
-            variant="outline"
-            className="w-full flex items-center justify-center gap-2"
-            onClick={handleTwitterSignIn}
-            disabled={loading}
-          >
-            <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden>
-              <path fill="#1DA1F2" d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012 7.5v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-            </svg>
-            Continue with Twitter
-          </Button>
-        </div>
 
         <p className="text-center mt-6 text-muted-foreground">
           Already have an account?{' '}
