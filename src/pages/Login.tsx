@@ -54,9 +54,8 @@ const Login = () => {
           <img 
             src="https://i.ibb.co/p6q8wd7w/Chat-GPT-Image-Oct-7-2025-08-01-14-PM.png" 
             alt="Community Fridge Logo" 
-            className="h-10"
+            className="h-29 w-20 object-contain"
           />
-          <span className="text-xl font-bold text-primary">Community Fridge</span>
         </Link>
 
         <h2 className="text-3xl font-bold text-center mb-2">Welcome Back!</h2>
